@@ -1,6 +1,6 @@
 <?php
 
-namespace Hcode;
+namespace Rodolfo;
 
 use Rain\Tpl;
 
@@ -40,6 +40,7 @@ class Page
         foreach ($data as $key => $value) {
             $this->tpl->assign($key, $value);
         }
+
     }
 
     public function setTpl($name, $data = array(), $returnHTML = false)
@@ -47,6 +48,11 @@ class Page
         $this->setData($data);
 
         return $this->tpl->draw($name, $returnHTML);
+
+        $arr = array(1, 2, 3, 4);
+        foreach ($arr as &$value) {
+            $value = $value * 2;
+        }
 
     }
 
