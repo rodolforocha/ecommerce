@@ -14,14 +14,14 @@ class Page
 
     private $options = [];
 
-    public function __construct($opts = array(), $tpl_dir="/views/")
+    public function __construct($opts = array(), $tpl_dir = "/views/")
     {
 
         $this->options = array_merge($this->defaults, $opts);
 
         // config
         $config = array(
-            "tpl_dir" => $_SERVER["DOCUMENT_ROOT"] . "/views/",
+            "tpl_dir" => $_SERVER["DOCUMENT_ROOT"] . $tpl_dir,
             "cache_dir" => $_SERVER["DOCUMENT_ROOT"] . "/views/cache/",
             "debug" => true,
         );
@@ -33,7 +33,8 @@ class Page
         $this->setData($this->options["data"]);
 
         $this->tpl->draw("header");
-    }
+
+        }
 
     private function setData($data = array())
     {
