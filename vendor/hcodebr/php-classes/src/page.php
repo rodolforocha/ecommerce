@@ -1,6 +1,6 @@
 <?php
 
-namespace Rodolfo;
+namespace Hcode;
 
 use Rain\Tpl;
 
@@ -14,7 +14,7 @@ class Page
 
     private $options = [];
 
-    public function __construct($opts = array())
+    public function __construct($opts = array(), $tpl_dir="/views/")
     {
 
         $this->options = array_merge($this->defaults, $opts);
@@ -48,11 +48,6 @@ class Page
         $this->setData($data);
 
         return $this->tpl->draw($name, $returnHTML);
-
-        $arr = array(1, 2, 3, 4);
-        foreach ($arr as &$value) {
-            $value = $value * 2;
-        }
 
     }
 

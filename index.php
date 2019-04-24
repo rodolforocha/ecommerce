@@ -2,7 +2,8 @@
 
 require_once "vendor/autoload.php";
 
-use \Rodolfo\Page;
+use \Hcode\Page;
+use \Hcode\PageAdmin;
 use \Slim\Slim;
 
 $app = new Slim();
@@ -14,12 +15,13 @@ $app->get('/', function () {
     $page = new Page();
 
     $page->setTpl("index");
-    //$sql = new Hcode\DB\Sql();
+});
 
-    //$results = $sql->select("SELECT * FROM tb_users");
+$app->get('/admin', function () {
 
-    //echo json_encode($results);
+    $page = new PageAdmin();
 
+    $page->setTpl("index");
 });
 
 $app->run();
